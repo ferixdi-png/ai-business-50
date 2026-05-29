@@ -9,6 +9,7 @@
   --accent: #8b5cf6;
   --accent-2: #e879f9;
   --ink: #08030f;
+  --page-max: 1440px;
   --radius: 28px;
   --shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
 }
@@ -133,6 +134,8 @@ a {
 }
 
 .section {
+  width: min(100%, var(--page-max));
+  margin-inline: auto;
   padding: clamp(54px, 7vw, 92px) clamp(18px, 5vw, 64px);
 }
 
@@ -1380,6 +1383,7 @@ h3 {
   .practice-grid,
   .rhythm-grid,
   .objection-strip,
+  .audience-grid,
   .role-grid,
   .board-grid,
   .faq-grid,
@@ -1393,9 +1397,15 @@ h3 {
 }
 
 @media (max-width: 840px) {
+  body {
+    background-attachment: scroll;
+  }
+
   .site-header {
     position: static;
     flex-wrap: wrap;
+    gap: 14px;
+    padding-block: 14px;
   }
 
   .nav {
@@ -1403,6 +1413,8 @@ h3 {
     width: 100%;
     overflow-x: auto;
     padding-bottom: 4px;
+    gap: 14px;
+    white-space: nowrap;
   }
 
   .value-grid,
@@ -1427,10 +1439,25 @@ h3 {
   .launch-note {
     align-items: flex-start;
     flex-direction: column;
+    gap: 8px;
   }
 
   .hero-photo-card {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: auto;
+  }
+
+  .hero-photo-card img {
+    display: block;
+    height: auto;
+  }
+
+  .hero-photo-overlay {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin: 12px;
+    padding: 18px;
   }
 }
 
@@ -1461,12 +1488,50 @@ h3 {
     line-height: 1.72;
   }
 
+  .hero-actions,
+  .contact-actions {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 50px;
+    padding-inline: 18px;
+  }
+
   .hero {
     min-height: auto;
   }
 
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand > span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .hero-proof,
+  .filters {
+    gap: 10px;
+  }
+
+  .filter {
+    flex: 1 1 auto;
+    min-height: 44px;
+    padding-inline: 12px;
+    font-size: 13px;
+  }
+
   .product-grid article,
   .practice-grid article,
+  .audience-grid article,
   .value-grid article,
   .role-card,
   .board-grid article,
@@ -1481,6 +1546,7 @@ h3 {
 
   .product-grid article,
   .practice-grid article,
+  .audience-grid article,
   .value-grid article,
   .role-card,
   .board-grid article,
@@ -1490,8 +1556,41 @@ h3 {
   }
 
   .faq-grid summary {
-    align-items: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 10px;
+    min-height: auto;
+  }
+
+  .faq-grid summary span {
+    grid-column: 1 / -1;
+    width: fit-content;
+  }
+
+  .video-window {
+    grid-template-columns: 52px 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .play-button {
+    width: 52px;
+    height: 52px;
+  }
+
+  .lesson-list div,
+  .simple-steps div,
+  .format-steps div {
+    grid-template-columns: 38px 1fr;
+    gap: 12px;
+  }
+
+  .lesson-list span,
+  .simple-steps span,
+  .format-steps span {
+    width: 36px;
+    height: 36px;
   }
 
   .case-card {
