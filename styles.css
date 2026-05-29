@@ -1309,6 +1309,22 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
+.final-photo-section {
+  padding: 0 clamp(18px, 5vw, 64px) clamp(42px, 6vw, 84px);
+}
+
+.final-photo-section img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    var(--shadow),
+    0 0 100px rgba(139, 92, 246, 0.18);
+}
+
 .footer p {
   margin-bottom: 0;
 }
