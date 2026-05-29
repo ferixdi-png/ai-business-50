@@ -502,15 +502,19 @@ function renderCases() {
     return;
   }
 
-  filtered.forEach((item, index) => {
+  filtered.forEach((item) => {
+    const lessonNumber = cases.indexOf(item) + 1;
+    const duration = 7 + (lessonNumber % 6) * 2;
     const card = document.createElement("article");
     card.className = "case-card";
     card.innerHTML = `
       <div class="case-meta">
-        <span>${String(index + 1).padStart(2, "0")}</span>
-        <span>${item.group}</span>
+        <span>Урок ${String(lessonNumber).padStart(2, "0")}</span>
+        <span>${duration} мин</span>
       </div>
+      <div class="lesson-chip">${item.group}</div>
       <h3>${item.title}</h3>
+      <p class="lesson-intro">Понятный урок: что открыть, что вставить в ИИ, какой ответ получить и что сделать дальше.</p>
       <div class="case-details">
         <div class="case-detail">
           <strong>Задача</strong>
@@ -521,7 +525,7 @@ function renderCases() {
           <span>${item.data}</span>
         </div>
         <div class="case-detail">
-          <strong>Результат</strong>
+          <strong>После урока</strong>
           <span>${item.result}</span>
         </div>
       </div>
@@ -541,3 +545,35 @@ filters.forEach((button) => {
 
 searchInput.addEventListener("input", renderCases);
 renderCases();
+
+const progressBar = document.querySelector(".scroll-progress");
+
+function updateScrollProgress() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+  progressBar.style.width = `${progress}%`;
+}
+
+const revealItems = document.querySelectorAll(
+  ".section, .hero-panel, .product-grid article, .case-card, .role-card, .board-grid article",
+);
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 },
+);
+
+revealItems.forEach((item) => {
+  item.classList.add("reveal");
+  revealObserver.observe(item);
+});
+
+window.addEventListener("scroll", updateScrollProgress, { passive: true });
+updateScrollProgress();
