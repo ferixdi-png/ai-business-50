@@ -796,6 +796,74 @@ h3 {
   margin-bottom: 0;
 }
 
+.prompts-card {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 34px;
+  padding: clamp(28px, 5vw, 54px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(232, 121, 249, 0.18), transparent 20rem),
+    rgba(255, 255, 255, 0.065);
+}
+
+.prompt-parts,
+.rhythm-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.prompt-parts {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.prompt-parts div,
+.rhythm-grid article {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.prompt-parts span,
+.rhythm-grid span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.prompt-parts p,
+.rhythm-grid p,
+.prompts-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.prompt-parts p,
+.rhythm-grid p {
+  margin-bottom: 0;
+}
+
+.rhythm-section {
+  padding-top: 42px;
+}
+
+.rhythm-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.rhythm-grid article {
+  min-height: 245px;
+  background:
+    linear-gradient(180deg, rgba(139, 92, 246, 0.13), rgba(255, 255, 255, 0.035)),
+    rgba(0, 0, 0, 0.18);
+}
+
 .signal-section {
   padding-top: 0;
 }
@@ -1261,12 +1329,14 @@ h3 {
   .newbie-card,
   .path-card,
   .week-card,
+  .prompts-card,
   .format-card {
     grid-template-columns: 1fr;
   }
 
   .product-grid,
   .practice-grid,
+  .rhythm-grid,
   .role-grid,
   .board-grid,
   .faq-grid,
@@ -1296,6 +1366,8 @@ h3 {
   .signal-strip,
   .product-grid,
   .practice-grid,
+  .prompt-parts,
+  .rhythm-grid,
   .audience-grid,
   .role-grid,
   .board-grid,
