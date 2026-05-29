@@ -546,7 +546,6 @@ h3 {
 .role-grid,
 .case-grid,
 .path-list,
-.week-steps,
 .board-grid {
   display: grid;
   gap: 18px;
@@ -564,8 +563,7 @@ h3 {
 .newbie-card,
 .practice-grid article,
 .audience-grid article,
-.path-card,
-.week-card {
+.path-card {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card);
@@ -629,7 +627,6 @@ h3 {
 .product-grid p,
 .newbie-card p,
 .practice-grid p,
-.week-card p,
 .audience-grid p,
 .path-list p,
 .lesson-intro {
@@ -757,43 +754,6 @@ h3 {
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.week-card {
-  display: grid;
-  grid-template-columns: 0.76fr 1.24fr;
-  gap: 34px;
-  padding: clamp(28px, 5vw, 54px);
-  background:
-    radial-gradient(circle at 100% 20%, rgba(168, 85, 247, 0.2), transparent 18rem),
-    rgba(255, 255, 255, 0.065);
-}
-
-.week-steps {
-  gap: 12px;
-}
-
-.week-steps div {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: 16px;
-  align-items: start;
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.16);
-}
-
-.week-steps span {
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.week-steps p {
-  margin-bottom: 0;
 }
 
 .prompts-card {
@@ -1328,7 +1288,6 @@ h3 {
   .hero,
   .newbie-card,
   .path-card,
-  .week-card,
   .prompts-card,
   .format-card {
     grid-template-columns: 1fr;
@@ -1383,10 +1342,6 @@ h3 {
   .launch-note {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .week-steps div {
-    grid-template-columns: 1fr;
   }
 
   .hero-photo-card {
