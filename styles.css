@@ -247,6 +247,53 @@ h3 {
   margin-top: 18px;
 }
 
+.mentor-strip {
+  display: grid;
+  max-width: 690px;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid rgba(232, 121, 249, 0.34);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(255, 255, 255, 0.045)),
+    rgba(0, 0, 0, 0.18);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.18);
+}
+
+.mentor-strip img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border: 2px solid rgba(232, 121, 249, 0.42);
+  border-radius: 22px;
+  box-shadow: 0 0 34px rgba(139, 92, 246, 0.32);
+}
+
+.mentor-strip span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mentor-strip strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 20px;
+}
+
+.mentor-strip p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .launch-note {
   display: flex;
   max-width: 690px;
@@ -1167,6 +1214,10 @@ h3 {
   .launch-note {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .mentor-strip {
+    grid-template-columns: 1fr;
   }
 
   .week-steps div {
