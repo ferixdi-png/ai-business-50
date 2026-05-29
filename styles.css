@@ -136,10 +136,14 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.14fr) minmax(320px, 0.86fr);
-  align-items: center;
-  gap: clamp(36px, 7vw, 86px);
-  min-height: calc(100vh - 76px);
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: clamp(28px, 5vw, 56px);
+  min-height: auto;
+}
+
+.hero-content {
+  max-width: 1040px;
 }
 
 .eyebrow {
@@ -326,10 +330,15 @@ h3 {
 .hero-photo-card {
   position: relative;
   overflow: hidden;
-  min-height: 760px;
+  order: -1;
+  width: 100%;
+  min-height: auto;
+  aspect-ratio: 16 / 9;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.06);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.18), transparent 24rem),
+    #05020d;
   box-shadow:
     var(--shadow),
     0 0 100px rgba(139, 92, 246, 0.2);
@@ -348,10 +357,10 @@ h3 {
 .hero-photo-card img {
   width: 100%;
   height: 100%;
-  min-height: 760px;
-  object-fit: cover;
+  min-height: auto;
+  object-fit: contain;
   object-position: center;
-  transform: scale(1.02);
+  transform: none;
 }
 
 .hero-photo-overlay {
@@ -1190,9 +1199,8 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hero-photo-card,
-  .hero-photo-card img {
-    min-height: 620px;
+  .hero-photo-card {
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -1233,9 +1241,8 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .hero-photo-card,
-  .hero-photo-card img {
-    min-height: 520px;
+  .hero-photo-card {
+    aspect-ratio: 4 / 3;
   }
 }
 
