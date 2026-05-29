@@ -1067,6 +1067,80 @@ h3 {
   color: var(--text);
 }
 
+.faq-section {
+  padding-top: 42px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.faq-grid details {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)),
+    rgba(0, 0, 0, 0.16);
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.faq-grid details[open],
+.faq-grid details:hover {
+  border-color: rgba(232, 121, 249, 0.42);
+  background:
+    linear-gradient(180deg, rgba(139, 92, 246, 0.15), rgba(255, 255, 255, 0.04)),
+    rgba(0, 0, 0, 0.16);
+}
+
+.faq-grid details:hover {
+  transform: translateY(-3px);
+}
+
+.faq-grid summary {
+  display: flex;
+  min-height: 88px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  cursor: pointer;
+  font-weight: 850;
+  line-height: 1.35;
+  list-style: none;
+}
+
+.faq-grid summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-grid summary::after {
+  display: grid;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  content: "+";
+  color: var(--ink);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #d8b4fe, var(--accent));
+  font-weight: 900;
+}
+
+.faq-grid details[open] summary::after {
+  content: "-";
+}
+
+.faq-grid p {
+  margin: -4px 20px 20px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .contact-section {
   padding-top: 40px;
 }
@@ -1195,6 +1269,7 @@ h3 {
   .practice-grid,
   .role-grid,
   .board-grid,
+  .faq-grid,
   .case-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1224,6 +1299,7 @@ h3 {
   .audience-grid,
   .role-grid,
   .board-grid,
+  .faq-grid,
   .case-grid {
     grid-template-columns: 1fr;
   }
